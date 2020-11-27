@@ -17,14 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lauching" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-by-stF">
-                                <rect key="frame" x="-49" y="192" width="512" height="512"/>
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GBI-by-stF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PAv-TL-37x"/>
-                            <constraint firstItem="GBI-by-stF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="S7L-qk-ihq"/>
+                            <constraint firstItem="GBI-by-stF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="279" id="DdE-bb-Tp1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GBI-by-stF" secondAttribute="trailing" constant="82" id="PkH-Ub-yIa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GBI-by-stF" secondAttribute="bottom" constant="289" id="k50-9h-WKu"/>
+                            <constraint firstItem="GBI-by-stF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="pYN-q1-CXc"/>
                         </constraints>
                     </view>
                 </viewController>
