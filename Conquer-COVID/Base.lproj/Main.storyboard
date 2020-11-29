@@ -32,6 +32,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPM-CQ-gJu">
+                                <rect key="frame" x="374" y="88" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="CEw-OL-p3u"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZwF-bv-e2N"/>
+                                </constraints>
+                                <state key="normal" image="arrow.clockwise" catalog="system">
+                                    <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="RefreshResearch:" destination="JUp-xL-PO5" eventType="touchUpInside" id="l6E-Is-1Jj"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBp-Zy-NZa" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,6 +55,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9DX-cF-bNV" firstAttribute="trailing" secondItem="ZBp-Zy-NZa" secondAttribute="trailing" id="2cj-0W-UwZ"/>
+                            <constraint firstItem="BPM-CQ-gJu" firstAttribute="top" secondItem="9DX-cF-bNV" secondAttribute="top" id="7pe-Pn-68n"/>
+                            <constraint firstItem="9DX-cF-bNV" firstAttribute="trailing" secondItem="BPM-CQ-gJu" secondAttribute="trailing" id="FSo-lA-vij"/>
                             <constraint firstItem="9DX-cF-bNV" firstAttribute="bottom" secondItem="ZBp-Zy-NZa" secondAttribute="bottom" id="YhR-gB-m4N"/>
                             <constraint firstItem="ZBp-Zy-NZa" firstAttribute="top" secondItem="9DX-cF-bNV" secondAttribute="top" id="gay-nH-FN6"/>
                             <constraint firstItem="ZBp-Zy-NZa" firstAttribute="leading" secondItem="9DX-cF-bNV" secondAttribute="leading" id="m5r-c6-qlW"/>
@@ -50,6 +66,7 @@
                     <navigationItem key="navigationItem" id="DvA-mc-5Mw"/>
                     <connections>
                         <outlet property="mapView" destination="ZBp-Zy-NZa" id="1UV-Ls-ebi"/>
+                        <outlet property="refreshButon" destination="BPM-CQ-gJu" id="aL1-pk-3mn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcJ-lz-C3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -93,6 +110,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">

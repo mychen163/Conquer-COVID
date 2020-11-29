@@ -16,6 +16,7 @@
 		B569A98B256CCBC400E8084D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B569A989256CCBC400E8084D /* LaunchScreen.storyboard */; };
 		B569A996256CCBC400E8084D /* Conquer_COVIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569A995256CCBC400E8084D /* Conquer_COVIDTests.swift */; };
 		B569A9A1256CCBC400E8084D /* Conquer_COVIDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569A9A0256CCBC400E8084D /* Conquer_COVIDUITests.swift */; };
+		B588D96025737CE00098BC4A /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588D95F25737CE00098BC4A /* GooglePlace.swift */; };
 		B5D1EEF7256CD90000E4A71E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1EEF6256CD90000E4A71E /* MapViewController.swift */; };
 		BF53375C33E1DEAFC1EAB307 /* Pods_Conquer_COVID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EE77A83A217379D6C1B669 /* Pods_Conquer_COVID.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		B569A99C256CCBC400E8084D /* Conquer-COVIDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Conquer-COVIDUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B569A9A0256CCBC400E8084D /* Conquer_COVIDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conquer_COVIDUITests.swift; sourceTree = "<group>"; };
 		B569A9A2256CCBC400E8084D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B588D95F25737CE00098BC4A /* GooglePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		B5D1EEF6256CD90000E4A71E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C58AC36CE51E601108337593 /* Pods-Conquer-COVIDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conquer-COVIDTests.debug.xcconfig"; path = "Target Support Files/Pods-Conquer-COVIDTests/Pods-Conquer-COVIDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D56059AF459F36487E49B44B /* Pods_Conquer_COVIDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conquer_COVIDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D1EEF6256CD90000E4A71E /* MapViewController.swift */,
+				B588D95F25737CE00098BC4A /* GooglePlace.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			files = (
 				B569A97F256CCBC300E8084D /* AppDelegate.swift in Sources */,
 				B5D1EEF7256CD90000E4A71E /* MapViewController.swift in Sources */,
+				B588D96025737CE00098BC4A /* GooglePlace.swift in Sources */,
 				B569A981256CCBC300E8084D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
