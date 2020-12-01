@@ -25,7 +25,8 @@ class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     @IBAction func RefreshResearch(_ sender: Any) {
-        self.fetchNearbyPlaces(coordinate: self.mapView.camera.target,radius: self.searchRadius)
+        self.fetchNearbyPlaces(coordinate: self.mapView.camera.target, radius: self.searchRadius) {
+        }
     }
     
     
@@ -59,7 +60,7 @@ class MapViewController: UIViewController {
         
     }
     
-    private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D, radius: Double) {
+    private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D, radius: Double, completion: @escaping(() -> Void)) {
         mapView.clear()
         placesArray.removeAll()
         var urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(coordinate.latitude),\(coordinate.longitude)&radius=\(searchRadius)&keyword=COVID+Testing&key=\(googleApiKey)"
@@ -69,19 +70,20 @@ class MapViewController: UIViewController {
         }
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: { (data,response,error) -> Void in
             if let json = try? JSON( data: data!, options: .mutableContainers),let results = json["results"].arrayObject as? [[String: Any]] {
+                
                 DispatchQueue.main.async {
-                results.forEach { result in
-                    let place = GooglePlace(dictionary: result)
+                    results.forEach { result in
+                        let place = GooglePlace(dictionary: result)
                         //print("There")
                         self.placesArray.append(place)
                         self.markerPlace(place:place)
                     }
-                    
+                    print(results.count)
+                    completion()
                 }
                 
             }
         }).resume()
-        
     }
     
     
@@ -142,7 +144,8 @@ extension MapViewController: CLLocationManagerDelegate {
         reverseGeocodeCoordinate(marker.position, marker: marker)
         marker.map = mapView
         locationManager.stopUpdatingLocation()
-        fetchNearbyPlaces(coordinate: location.coordinate, radius: searchRadius)
+        self.fetchNearbyPlaces(coordinate: location.coordinate, radius: searchRadius){
+        }
         
     }
 }
@@ -168,7 +171,8 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
         marker.title = "Search Postion"
         reverseGeocodeCoordinate(marker.position, marker: marker)
         marker.map = mapView
-        fetchNearbyPlaces(coordinate: place.coordinate, radius: searchRadius)
+        self.fetchNearbyPlaces(coordinate: place.coordinate, radius: searchRadius){
+        }
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
