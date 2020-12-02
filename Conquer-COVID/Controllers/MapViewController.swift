@@ -190,8 +190,7 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
         marker.title = "Search Postion"
         reverseGeocodeCoordinate(marker.position, marker: marker)
         marker.map = mapView
-        // self.fetchNearbyPlaces(coordinate: place.coordinate, radius: searchRadius){
-        //}
+        self.navigationItem.rightBarButtonItem = nil
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
