@@ -7,6 +7,7 @@ target 'Conquer-COVID' do
   pod 'SwiftyJSON'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'AlamofireImage'
 
   # Pods for Conquer-COVID
 

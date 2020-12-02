@@ -16,7 +16,8 @@ class MapViewController: UIViewController {
     var searchController: UISearchController?
     var resultView: UITextView?
     
-    @IBOutlet weak var refreshButon: UIButton!
+    @IBOutlet weak var searchNearby: UIButton!
+    @IBOutlet var detailsButton: UIBarButtonItem!
     @IBOutlet weak var mapView: GMSMapView!
     
     let googleApiKey = "AIzaSyBl3AW7yrDq7yCRATsP9-aAreOTQ9fxE68"
@@ -24,21 +25,28 @@ class MapViewController: UIViewController {
     let searchRadius: Double = 5000
     let locationManager = CLLocationManager()
     
-    @IBAction func RefreshResearch(_ sender: Any) {
+    @IBAction func nearbySearch(_ sender: Any) {
         self.fetchNearbyPlaces(coordinate: self.mapView.camera.target, radius: self.searchRadius) {
+            if self.placesArray.count != 0 {
+                self.navigationItem.rightBarButtonItem = self.detailsButton
+            }else{
+                self.navigationItem.rightBarButtonItem = nil
+            }
         }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(refreshButon)
+        searchNearby.layer.cornerRadius = 10.0
+        self.view.addSubview(searchNearby)
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
+        
         mapView.delegate = self
         
         resultsViewController = GMSAutocompleteResultsViewController()
@@ -57,6 +65,7 @@ class MapViewController: UIViewController {
         
         // Prevent the navigation bar from being hidden when searching.
         searchController?.hidesNavigationBarDuringPresentation = false
+        self.navigationItem.rightBarButtonItem = nil
         
     }
     
@@ -78,7 +87,7 @@ class MapViewController: UIViewController {
                         self.placesArray.append(place)
                         self.markerPlace(place:place)
                     }
-                    print(results.count)
+                    //print(results.count)
                     completion()
                 }
                 
@@ -102,6 +111,8 @@ class MapViewController: UIViewController {
         marker.map = self.mapView
     }
     
+    
+    
     // reverse the coordinates into address for Info view
     private func reverseGeocodeCoordinate(_ coordinate: CLLocationCoordinate2D, marker:GMSMarker ){
         
@@ -117,6 +128,14 @@ class MapViewController: UIViewController {
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? TestingCentersList {
+            print("prepare")
+            dest.testingCentersList = placesArray
+            print(placesArray.count)
         }
     }
 }
@@ -144,8 +163,8 @@ extension MapViewController: CLLocationManagerDelegate {
         reverseGeocodeCoordinate(marker.position, marker: marker)
         marker.map = mapView
         locationManager.stopUpdatingLocation()
-        self.fetchNearbyPlaces(coordinate: location.coordinate, radius: searchRadius){
-        }
+        //        self.fetchNearbyPlaces(coordinate: location.coordinate, radius: searchRadius){
+        //        }
         
     }
 }
@@ -171,8 +190,8 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
         marker.title = "Search Postion"
         reverseGeocodeCoordinate(marker.position, marker: marker)
         marker.map = mapView
-        self.fetchNearbyPlaces(coordinate: place.coordinate, radius: searchRadius){
-        }
+        // self.fetchNearbyPlaces(coordinate: place.coordinate, radius: searchRadius){
+        //}
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

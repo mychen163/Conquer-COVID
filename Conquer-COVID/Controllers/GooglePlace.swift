@@ -17,14 +17,17 @@ class GooglePlace {
   var photoReference: String?
   var photo: UIImage?
   var open_now: Bool
-  
+  var iconUrl:String
+  var rating:Double
+    
   init(dictionary: [String: Any])
   {
     let json = JSON(dictionary)
     name = json["name"].stringValue
     address = json["vicinity"].stringValue
     open_now = json["opening_hours"]["open_now"].boolValue
-    
+    iconUrl = json["icon"].stringValue
+    rating = json["rating"].doubleValue
     let lat = json["geometry"]["location"]["lat"].doubleValue as CLLocationDegrees
     let lng = json["geometry"]["location"]["lng"].doubleValue as CLLocationDegrees
     coordinate = CLLocationCoordinate2DMake(lat, lng)
