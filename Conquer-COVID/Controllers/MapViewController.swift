@@ -133,9 +133,9 @@ class MapViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? TestingCentersList {
-            print("prepare")
+            //print("prepare")
             dest.testingCentersList = placesArray
-            print(placesArray.count)
+           // print(placesArray.count)
         }
     }
 }

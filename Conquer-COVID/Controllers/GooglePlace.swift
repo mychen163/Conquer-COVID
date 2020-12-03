@@ -19,6 +19,7 @@ class GooglePlace {
   var open_now: Bool
   var iconUrl:String
   var rating:Double
+  var place_id: String
     
   init(dictionary: [String: Any])
   {
@@ -28,6 +29,8 @@ class GooglePlace {
     open_now = json["opening_hours"]["open_now"].boolValue
     iconUrl = json["icon"].stringValue
     rating = json["rating"].doubleValue
+    place_id = json["place_id"].stringValue
+    
     let lat = json["geometry"]["location"]["lat"].doubleValue as CLLocationDegrees
     let lng = json["geometry"]["location"]["lng"].doubleValue as CLLocationDegrees
     coordinate = CLLocationCoordinate2DMake(lat, lng)

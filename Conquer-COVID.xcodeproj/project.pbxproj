@@ -11,6 +11,7 @@
 		99BAD596C565D4564C4EE68A /* Pods_Conquer_COVID_Conquer_COVIDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA680EF107FBD09FB3BA172 /* Pods_Conquer_COVID_Conquer_COVIDUITests.framework */; };
 		B54EF83B257812C40010AAB0 /* TestingCenterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54EF83A257812C40010AAB0 /* TestingCenterList.swift */; };
 		B54EF84B2578142B0010AAB0 /* TestingCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54EF84A2578142B0010AAB0 /* TestingCenterCell.swift */; };
+		B54EF863257856A20010AAB0 /* TestingCenterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54EF862257856A20010AAB0 /* TestingCenterDetailsViewController.swift */; };
 		B569A97F256CCBC300E8084D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569A97E256CCBC300E8084D /* AppDelegate.swift */; };
 		B569A981256CCBC300E8084D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569A980256CCBC300E8084D /* SceneDelegate.swift */; };
 		B569A986256CCBC300E8084D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B569A984256CCBC300E8084D /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		AF62C7005B2EFA39A46E52F3 /* Pods-Conquer-COVID.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conquer-COVID.debug.xcconfig"; path = "Target Support Files/Pods-Conquer-COVID/Pods-Conquer-COVID.debug.xcconfig"; sourceTree = "<group>"; };
 		B54EF83A257812C40010AAB0 /* TestingCenterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCenterList.swift; sourceTree = "<group>"; };
 		B54EF84A2578142B0010AAB0 /* TestingCenterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCenterCell.swift; sourceTree = "<group>"; };
+		B54EF862257856A20010AAB0 /* TestingCenterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCenterDetailsViewController.swift; sourceTree = "<group>"; };
 		B569A97B256CCBC300E8084D /* Conquer-COVID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Conquer-COVID.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B569A97E256CCBC300E8084D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B569A980256CCBC300E8084D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				B569A97E256CCBC300E8084D /* AppDelegate.swift */,
 				B569A980256CCBC300E8084D /* SceneDelegate.swift */,
 				B569A984256CCBC300E8084D /* Main.storyboard */,
+				B54EF862257856A20010AAB0 /* TestingCenterDetailsViewController.swift */,
 				B569A987256CCBC400E8084D /* Assets.xcassets */,
 				B5D1EEFB256CD90A00E4A71E /* Controllers */,
 				B569A989256CCBC400E8084D /* LaunchScreen.storyboard */,
@@ -459,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54EF863257856A20010AAB0 /* TestingCenterDetailsViewController.swift in Sources */,
 				B54EF83B257812C40010AAB0 /* TestingCenterList.swift in Sources */,
 				B569A97F256CCBC300E8084D /* AppDelegate.swift in Sources */,
 				B5D1EEF7256CD90000E4A71E /* MapViewController.swift in Sources */,

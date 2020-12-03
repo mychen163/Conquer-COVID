@@ -1,6 +1,6 @@
 //
 //  TestingCentersList.swift
-//  MapTest
+//  Conquer-COVID
 //
 //  Created by M.y Chen on 12/1/20.
 //
@@ -10,14 +10,19 @@ import AlamofireImage
 import SwiftyJSON
 
 class TestingCentersList: UITableViewController {
+    
     var testingCentersList: [GooglePlace]?
-    var detailResultsList:[GooglePlace]?
+    // var detailResultsList:[GooglePlace]?
     var googleApiKey = "AIzaSyBl3AW7yrDq7yCRATsP9-aAreOTQ9fxE68"
+    var current_placeId = ""
+    var photo_reference: String?
+    var open_now : Bool?
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
-
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,8 +34,34 @@ class TestingCentersList: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        print(testingCentersList?.count ?? 0)
+       // print(testingCentersList?.count ?? 0)
     }
+    
+    @IBAction func viewDetails(_ sender: UIButton) {
+        let buttonPostion = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPostion){
+            let rowIndex = indexPath.row
+            if let list = testingCentersList {
+                current_placeId = list[rowIndex].place_id
+                open_now = list[rowIndex].open_now
+                photo_reference = list[rowIndex].photoReference
+            }
+        }
+        
+        self.performSegue(withIdentifier: "viewDetailsSegue", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "viewDetailsSegue" {
+            if let destVC = segue.destination as? TestingCenterDetailsViewController {
+                destVC.place_id = current_placeId
+                destVC.open_now = open_now
+                destVC.photo_reference = photo_reference
+            }
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,7 +86,7 @@ class TestingCentersList: UITableViewController {
             cell.iconImage.layer.masksToBounds = true
             cell.iconImage.layer.cornerRadius = cell.iconImage.bounds.width/2
             cell.rating.text = String(list[indexPath.row].rating)
-            cell.rating.textColor = .blue
+            cell.rating.textColor = .orange
             cell.address.text = list[indexPath.row].address
             if list[indexPath.row].open_now {
                 cell.openNow.text = "Open now"
@@ -65,58 +96,58 @@ class TestingCentersList: UITableViewController {
                 cell.openNow.textColor = .red
             }
         }
-       
         
         return cell
     }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    //find the detailed information about every testing center
+}
+
+/*
+ // Override to support conditional editing of the table view.
+ override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+ // Return false if you do not want the specified item to be editable.
+ return true
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+ if editingStyle == .delete {
+ // Delete the row from the data source
+ tableView.deleteRows(at: [indexPath], with: .fade)
+ } else if editingStyle == .insert {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+ 
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+ // Return false if you do not want the item to be re-orderable.
+ return true
+ }
+ */
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+//find the detailed information about every testing center
 //       func fetchPlaceDetails(place_id:String,completion:@escaping(()->Void)){
 //           var urlString = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(place_id)&key=\(googleApiKey)"
 //           urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? urlString
@@ -139,5 +170,5 @@ class TestingCentersList: UITableViewController {
 //            }
 //        }).resume()
 //  }
-}
+
 
