@@ -196,6 +196,7 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
         reverseGeocodeCoordinate(marker.position, marker: marker)
         marker.map = mapView
         self.navigationItem.rightBarButtonItem = nil
+        reverseGeocodeCoordinate(marker.position, marker: marker)
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
