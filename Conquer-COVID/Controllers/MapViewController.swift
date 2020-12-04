@@ -125,8 +125,7 @@ class MapViewController: UIViewController {
             }
            // print(address.locality!)
             print(address.administrativeArea ?? "")
-            let vc = CurrentLocation.sharedInstance
-            vc.current_state = address.administrativeArea ?? "Error"
+            
             
             marker.snippet = lines.joined(separator: "\n")
             // once the address is set, animate the changes in the label's intrinsic content size
@@ -166,10 +165,13 @@ extension MapViewController: CLLocationManagerDelegate {
         marker.title = "Current Postion"
         marker.icon = UIImage(named: "icon_current")
         reverseGeocodeCoordinate(marker.position, marker: marker)
+        let vc = CurrentLocation.sharedInstance
+        vc.coordinate = marker.position
         marker.map = mapView
         locationManager.stopUpdatingLocation()
         //        self.fetchNearbyPlaces(coordinate: location.coordinate, radius: searchRadius){
         //        }
+        
         
     }
 }
@@ -197,6 +199,9 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
         marker.map = mapView
         self.navigationItem.rightBarButtonItem = nil
         reverseGeocodeCoordinate(marker.position, marker: marker)
+        let vc = CurrentLocation.sharedInstance
+        vc.coordinate = marker.position
+        
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

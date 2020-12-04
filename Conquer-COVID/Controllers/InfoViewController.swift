@@ -6,18 +6,20 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 class InfoViewController: UIViewController {
-    var state: String?
+    var coordinate = CLLocationCoordinate2D(latitude:0.0,  longitude:0.0)
 
     @IBOutlet var headLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        state = CurrentLocation.sharedInstance.current_state
-        if let state = state{
-            headLabel.text = "\(state) Covid-19 Info"
+        coordinate = CurrentLocation.sharedInstance.coordinate
+        if coordinate != nil{
+            headLabel.text = "\(coordinate) Covid-19 Info"
         }else{
             headLabel.text = "Covid-19 Info"
         }

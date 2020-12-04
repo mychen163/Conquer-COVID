@@ -84,7 +84,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Location" image="location.circle.fill" catalog="system" id="hUc-fn-wRa"/>
                     <navigationItem key="navigationItem" id="DvA-mc-5Mw">
-                        <barButtonItem key="rightBarButtonItem" title="details" id="FNh-q5-KC1">
+                        <barButtonItem key="rightBarButtonItem" title="list" image="list.star" catalog="system" id="FNh-q5-KC1">
                             <connections>
                                 <segue destination="XXa-U2-n2B" kind="presentation" id="LMG-tD-zT3"/>
                             </connections>
@@ -145,7 +145,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="testingCenterCell" rowHeight="200" id="4UB-Fu-lEj" customClass="TestingCenterCell" customModule="Conquer_COVID" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="26" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4UB-Fu-lEj" id="jRN-ZT-u2J">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -334,6 +334,7 @@
     </scenes>
     <resources>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="list.star" catalog="system" width="128" height="94"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="linkColor">
