@@ -11,18 +11,37 @@
         <!--Info-->
         <scene sceneID="HKU-sw-C8H">
             <objects>
-                <viewController id="IZU-oE-cNr" sceneMemberID="viewController">
+                <viewController id="IZU-oE-cNr" customClass="InfoViewController" customModule="Conquer_COVID" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NYC-Ik-XuY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID 19 Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfn-SQ-FkB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="DHC-5C-WBc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bnh-EG-tbl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dfn-SQ-FkB" firstAttribute="leading" secondItem="bnh-EG-tbl" secondAttribute="leading" id="Lwc-fM-nYr"/>
+                            <constraint firstItem="Dfn-SQ-FkB" firstAttribute="top" secondItem="NYC-Ik-XuY" secondAttribute="topMargin" id="Uoj-Tm-dkd"/>
+                            <constraint firstItem="Dfn-SQ-FkB" firstAttribute="trailing" secondItem="bnh-EG-tbl" secondAttribute="trailing" id="bxK-Y2-6sU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="info.circle.fill" catalog="system" id="e2R-5O-dzw"/>
+                    <connections>
+                        <outlet property="headLabel" destination="Dfn-SQ-FkB" id="GEE-jw-iaa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMc-Qa-ZrP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="1237"/>
+            <point key="canvasLocation" x="769.56521739130437" y="1236.8303571428571"/>
         </scene>
         <!--Location-->
         <scene sceneID="iEL-th-sGv">
@@ -119,13 +138,13 @@
         <!--Testing Centers List-->
         <scene sceneID="eky-44-mG0">
             <objects>
-                <tableViewController id="XXa-U2-n2B" customClass="TestingCentersList" customModule="MapTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XXa-U2-n2B" customClass="TestingCentersList" customModule="Conquer_COVID" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nnd-2L-O0k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="testingCenterCell" rowHeight="200" id="4UB-Fu-lEj" customClass="TestingCenterCell" customModule="MapTest" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="testingCenterCell" rowHeight="200" id="4UB-Fu-lEj" customClass="TestingCenterCell" customModule="Conquer_COVID" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4UB-Fu-lEj" id="jRN-ZT-u2J">

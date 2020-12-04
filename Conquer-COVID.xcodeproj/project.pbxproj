@@ -20,6 +20,8 @@
 		B569A996256CCBC400E8084D /* Conquer_COVIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569A995256CCBC400E8084D /* Conquer_COVIDTests.swift */; };
 		B569A9A1256CCBC400E8084D /* Conquer_COVIDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569A9A0256CCBC400E8084D /* Conquer_COVIDUITests.swift */; };
 		B588D96025737CE00098BC4A /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588D95F25737CE00098BC4A /* GooglePlace.swift */; };
+		B5B231D22579E3DC0019A5B9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B231D12579E3DC0019A5B9 /* InfoViewController.swift */; };
+		B5B231D72579E86B0019A5B9 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B231D62579E86B0019A5B9 /* CurrentLocation.swift */; };
 		B5D1EEF7256CD90000E4A71E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1EEF6256CD90000E4A71E /* MapViewController.swift */; };
 		BF53375C33E1DEAFC1EAB307 /* Pods_Conquer_COVID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EE77A83A217379D6C1B669 /* Pods_Conquer_COVID.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,8 @@
 		B569A9A0256CCBC400E8084D /* Conquer_COVIDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conquer_COVIDUITests.swift; sourceTree = "<group>"; };
 		B569A9A2256CCBC400E8084D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B588D95F25737CE00098BC4A /* GooglePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
+		B5B231D12579E3DC0019A5B9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		B5B231D62579E86B0019A5B9 /* CurrentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
 		B5D1EEF6256CD90000E4A71E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C58AC36CE51E601108337593 /* Pods-Conquer-COVIDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conquer-COVIDTests.debug.xcconfig"; path = "Target Support Files/Pods-Conquer-COVIDTests/Pods-Conquer-COVIDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D56059AF459F36487E49B44B /* Pods_Conquer_COVIDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conquer_COVIDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +154,6 @@
 				B569A97E256CCBC300E8084D /* AppDelegate.swift */,
 				B569A980256CCBC300E8084D /* SceneDelegate.swift */,
 				B569A984256CCBC300E8084D /* Main.storyboard */,
-				B54EF862257856A20010AAB0 /* TestingCenterDetailsViewController.swift */,
 				B569A987256CCBC400E8084D /* Assets.xcassets */,
 				B5D1EEFB256CD90A00E4A71E /* Controllers */,
 				B569A989256CCBC400E8084D /* LaunchScreen.storyboard */,
@@ -180,7 +183,10 @@
 		B5D1EEFB256CD90A00E4A71E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B54EF862257856A20010AAB0 /* TestingCenterDetailsViewController.swift */,
 				B5D1EEF6256CD90000E4A71E /* MapViewController.swift */,
+				B5B231D12579E3DC0019A5B9 /* InfoViewController.swift */,
+				B5B231D62579E86B0019A5B9 /* CurrentLocation.swift */,
 				B54EF83A257812C40010AAB0 /* TestingCenterList.swift */,
 				B588D95F25737CE00098BC4A /* GooglePlace.swift */,
 				B54EF84A2578142B0010AAB0 /* TestingCenterCell.swift */,
@@ -465,9 +471,11 @@
 				B54EF863257856A20010AAB0 /* TestingCenterDetailsViewController.swift in Sources */,
 				B54EF83B257812C40010AAB0 /* TestingCenterList.swift in Sources */,
 				B569A97F256CCBC300E8084D /* AppDelegate.swift in Sources */,
+				B5B231D72579E86B0019A5B9 /* CurrentLocation.swift in Sources */,
 				B5D1EEF7256CD90000E4A71E /* MapViewController.swift in Sources */,
 				B54EF84B2578142B0010AAB0 /* TestingCenterCell.swift in Sources */,
 				B588D96025737CE00098BC4A /* GooglePlace.swift in Sources */,
+				B5B231D22579E3DC0019A5B9 /* InfoViewController.swift in Sources */,
 				B569A981256CCBC300E8084D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

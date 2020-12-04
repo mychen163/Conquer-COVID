@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
     var placesArray:[GooglePlace] = []
     let searchRadius: Double = 5000
     let locationManager = CLLocationManager()
+    var current_state = ""
     
     @IBAction func nearbySearch(_ sender: Any) {
         self.fetchNearbyPlaces(coordinate: self.mapView.camera.target, radius: self.searchRadius) {
@@ -122,7 +123,11 @@ class MapViewController: UIViewController {
             guard let address = response?.firstResult(), let lines = address.lines else {
                 return
             }
-            print(address.locality!)
+           // print(address.locality!)
+            print(address.administrativeArea ?? "")
+            let vc = CurrentLocation.sharedInstance
+            vc.current_state = address.administrativeArea ?? "Error"
+            
             marker.snippet = lines.joined(separator: "\n")
             // once the address is set, animate the changes in the label's intrinsic content size
             UIView.animate(withDuration: 0.25) {
