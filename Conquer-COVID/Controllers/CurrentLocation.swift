@@ -12,5 +12,6 @@ import GooglePlaces
 class CurrentLocation {
     static let sharedInstance = CurrentLocation()
     
+    var current_state = ""
     var coordinate = CLLocationCoordinate2D(latitude:0.0,  longitude:0.0)
 }

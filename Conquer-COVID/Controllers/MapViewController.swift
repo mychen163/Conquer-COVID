@@ -22,7 +22,7 @@ class MapViewController: UIViewController {
     
     let googleApiKey = "AIzaSyBl3AW7yrDq7yCRATsP9-aAreOTQ9fxE68"
     var placesArray:[GooglePlace] = []
-    let searchRadius: Double = 5000
+    let searchRadius: Double = 10000
     let locationManager = CLLocationManager()
     var current_state = ""
     
@@ -34,6 +34,16 @@ class MapViewController: UIViewController {
                 self.navigationItem.rightBarButtonItem = nil
             }
         }
+        if placesArray.count == 0 {
+            self.fetchNearbyPlaces(coordinate: self.mapView.camera.target, radius: self.searchRadius*2) {
+                if self.placesArray.count != 0 {
+                    self.navigationItem.rightBarButtonItem = self.detailsButton
+                }else{
+                    self.navigationItem.rightBarButtonItem = nil
+                }
+            }
+        }
+        
     }
     
     
@@ -129,6 +139,11 @@ class MapViewController: UIViewController {
             
             marker.snippet = lines.joined(separator: "\n")
             // once the address is set, animate the changes in the label's intrinsic content size
+            
+            let vc = CurrentLocation.sharedInstance
+            vc.current_state = address.administrativeArea ?? ""
+            vc.coordinate = marker.position
+            
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
             }
@@ -147,7 +162,6 @@ class MapViewController: UIViewController {
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        // 3
         guard status == .authorizedWhenInUse else {
             print("error")
             return
@@ -165,8 +179,6 @@ extension MapViewController: CLLocationManagerDelegate {
         marker.title = "Current Postion"
         marker.icon = UIImage(named: "icon_current")
         reverseGeocodeCoordinate(marker.position, marker: marker)
-        let vc = CurrentLocation.sharedInstance
-        vc.coordinate = marker.position
         marker.map = mapView
         locationManager.stopUpdatingLocation()
         //        self.fetchNearbyPlaces(coordinate: location.coordinate, radius: searchRadius){
@@ -189,24 +201,18 @@ extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         
-        // Do something with the selected place.
         self.mapView.clear()
         mapView.camera = GMSCameraPosition(target: place.coordinate, zoom: 12, bearing: 0, viewingAngle: 0)
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude:place.coordinate.latitude , longitude: place.coordinate.longitude)
         marker.title = "Search Postion"
-        reverseGeocodeCoordinate(marker.position, marker: marker)
         marker.map = mapView
         self.navigationItem.rightBarButtonItem = nil
         reverseGeocodeCoordinate(marker.position, marker: marker)
-        let vc = CurrentLocation.sharedInstance
-        vc.coordinate = marker.position
-        
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didFailAutocompleteWithError error: Error){
-        // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
 }
